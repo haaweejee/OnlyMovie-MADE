@@ -7,7 +7,7 @@ import java.util.concurrent.Executor
 import java.util.concurrent.Executors
 
 class AppExecutors @VisibleForTesting constructor(
-    private val diskIO : Executor,
+    private val diskIO: Executor,
     private val mainThread: Executor
 ) {
     constructor() : this(DiskIOThreadExecutor(), MainThreadExecutor())
@@ -27,8 +27,9 @@ class MainThreadExecutor : Executor {
 
 }
 
-class DiskIOThreadExecutor :Executor {
-    private val diskIO : Executor
+class DiskIOThreadExecutor : Executor {
+    private val diskIO: Executor
+
     init {
         diskIO = Executors.newSingleThreadExecutor()
     }

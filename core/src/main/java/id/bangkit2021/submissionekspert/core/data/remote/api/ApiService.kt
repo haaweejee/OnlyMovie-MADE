@@ -10,7 +10,7 @@ interface ApiService {
     @GET("discover/movie")
     suspend fun getMovieData(
         @Query("api_key") apiKey: String = Constanta.API_KEY,
-        @Query("language") language: String= Constanta.EN_US,
+        @Query("language") language: String = Constanta.EN_US,
         @Query("page") page: Int = 1
     ): MovieResponse
 }

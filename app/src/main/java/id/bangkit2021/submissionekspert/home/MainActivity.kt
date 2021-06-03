@@ -17,7 +17,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding : ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
     private lateinit var movieAdapter: ListMovieAdapter
     private val movieViewModel: MovieViewModel by viewModel()
 
@@ -52,14 +52,14 @@ class MainActivity : AppCompatActivity() {
 
 
         movieViewModel.movie.observe(this, {
-            if (it != null){
-                when(it){
+            if (it != null) {
+                when (it) {
                     is Resource.Loading -> showLoading(true)
                     is Resource.Success -> {
                         showLoading(false)
                         it.data?.let { list -> movieAdapter.setMovies(list) }
                         movieAdapter.notifyDataSetChanged()
-                            binding.rvCard.visibility = View.VISIBLE
+                        binding.rvCard.visibility = View.VISIBLE
                     }
                     is Resource.Error -> {
                         showLoading(false)

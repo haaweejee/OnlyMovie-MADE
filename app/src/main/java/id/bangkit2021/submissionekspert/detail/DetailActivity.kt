@@ -13,12 +13,12 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DetailActivity : AppCompatActivity() {
 
-    companion object{
+    companion object {
         const val EXTRA_ID = "id"
     }
 
-    private lateinit var binding : ActivityDetailBinding
-    private val detailViewModel : DetailViewModel by viewModel()
+    private lateinit var binding: ActivityDetailBinding
+    private val detailViewModel: DetailViewModel by viewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
@@ -32,8 +32,8 @@ class DetailActivity : AppCompatActivity() {
         loadDetailMovie(detailMovie)
     }
 
-    private fun loadDetailMovie(movie: Movie?){
-        if (movie != null){
+    private fun loadDetailMovie(movie: Movie?) {
+        if (movie != null) {
             binding.itemDetailName.text = movie.original_title
             supportActionBar?.title = movie.original_title
             binding.itemDetailOverview.text = movie.overview
@@ -65,18 +65,27 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    override fun onSupportNavigateUp():Boolean{
+    override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
     }
 
 
-
-    private fun setFavoriteState(state: Boolean){
-        if (state){
-            binding.btnFavorite.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_favorited))
-        }else{
-            binding.btnFavorite.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_favorite))
+    private fun setFavoriteState(state: Boolean) {
+        if (state) {
+            binding.btnFavorite.setImageDrawable(
+                ContextCompat.getDrawable(
+                    this,
+                    R.drawable.ic_favorited
+                )
+            )
+        } else {
+            binding.btnFavorite.setImageDrawable(
+                ContextCompat.getDrawable(
+                    this,
+                    R.drawable.ic_favorite
+                )
+            )
         }
     }
 }

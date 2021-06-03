@@ -1,8 +1,8 @@
 package id.bangkit2021.submissionekspert.core.data.remote
 
 import android.util.Log
-import id.bangkit2021.submissionekspert.core.data.remote.api.ApiService
 import id.bangkit2021.submissionekspert.core.data.remote.api.ApiResponse
+import id.bangkit2021.submissionekspert.core.data.remote.api.ApiService
 import id.bangkit2021.submissionekspert.core.data.remote.response.MovieModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -19,7 +19,7 @@ class RemoteDataSource(private val apiService: ApiService) {
                 val dataArray = response.results
                 if (dataArray.isNotEmpty()) {
                     emit(ApiResponse.Success(response.results))
-                }else{
+                } else {
                     emit(ApiResponse.Empty)
                 }
             } catch (e: Exception) {

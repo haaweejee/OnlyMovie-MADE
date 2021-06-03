@@ -11,24 +11,25 @@ import id.bangkit2021.submissionekspert.core.databinding.ItemCardListBinding
 import id.bangkit2021.submissionekspert.core.domain.model.Movie
 import id.bangkit2021.submissionekspert.core.utils.Constanta
 
-class ListMovieAdapter: RecyclerView.Adapter<ListMovieAdapter.ViewHolder>() {
+class ListMovieAdapter : RecyclerView.Adapter<ListMovieAdapter.ViewHolder>() {
     private val listMovies = ArrayList<Movie>()
-    private var onItemClickMovieCallback : OnItemClickMovieCallback? = null
+    private var onItemClickMovieCallback: OnItemClickMovieCallback? = null
 
-    fun setOnItemClick(onItemClickMovieCallback: OnItemClickMovieCallback){
+    fun setOnItemClick(onItemClickMovieCallback: OnItemClickMovieCallback) {
         this.onItemClickMovieCallback = onItemClickMovieCallback
     }
 
-    fun setMovies(movieEntities: List<Movie>){
+    fun setMovies(movieEntities: List<Movie>) {
         this.listMovies.clear()
         this.listMovies.addAll(movieEntities)
         notifyDataSetChanged()
         Log.d("", listMovies.toString())
     }
 
-    inner class ViewHolder(private val binding: ItemCardListBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bindMovie(movieEntity: Movie){
-            with(binding){
+    inner class ViewHolder(private val binding: ItemCardListBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bindMovie(movieEntity: Movie) {
+            with(binding) {
                 tvCardName.text = movieEntity.original_title
                 Glide.with(itemView.context)
                     .load(Constanta.POSTER_PATH + movieEntity.poster_path)
@@ -37,12 +38,14 @@ class ListMovieAdapter: RecyclerView.Adapter<ListMovieAdapter.ViewHolder>() {
                     .into(imageView)
             }
             binding.root.setOnClickListener {
-                onItemClickMovieCallback?.onItemClickedMovie(movieEntity) }
+                onItemClickMovieCallback?.onItemClickedMovie(movieEntity)
+            }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemListBinding = ItemCardListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val itemListBinding =
+            ItemCardListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(itemListBinding)
     }
 

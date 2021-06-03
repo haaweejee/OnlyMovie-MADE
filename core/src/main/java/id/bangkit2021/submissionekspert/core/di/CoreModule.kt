@@ -1,11 +1,11 @@
 package id.bangkit2021.submissionekspert.core.di
 
 import androidx.room.Room
-import id.bangkit2021.submissionekspert.core.data.remote.api.ApiService
 import id.bangkit2021.submissionekspert.core.data.MovieRepository
 import id.bangkit2021.submissionekspert.core.data.local.LocalDataSource
 import id.bangkit2021.submissionekspert.core.data.local.room.MovieDatabase
 import id.bangkit2021.submissionekspert.core.data.remote.RemoteDataSource
+import id.bangkit2021.submissionekspert.core.data.remote.api.ApiService
 import id.bangkit2021.submissionekspert.core.domain.repository.IMovieRepository
 import id.bangkit2021.submissionekspert.core.utils.AppExecutors
 import id.bangkit2021.submissionekspert.core.utils.Constanta
@@ -45,17 +45,17 @@ class CoreModule {
             retrofit.create(ApiService::class.java)
         }
     }
-  val repositoryModule = module {
-      single { LocalDataSource(get()) }
-      single { RemoteDataSource(get()) }
-      factory { AppExecutors() }
-      single<IMovieRepository>{
-          MovieRepository(
-              get(),
-              get(),
-              get()
-          )
-      }
-  }
+    val repositoryModule = module {
+        single { LocalDataSource(get()) }
+        single { RemoteDataSource(get()) }
+        factory { AppExecutors() }
+        single<IMovieRepository> {
+            MovieRepository(
+                get(),
+                get(),
+                get()
+            )
+        }
+    }
 
 }

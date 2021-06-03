@@ -1,7 +1,6 @@
 package id.bangkit2021.submissionekspert.core.data.local.room
 
 import androidx.room.*
-import id.bangkit2021.submissionekspert.core.data.local.entity.MovieEntity
 import kotlinx.coroutines.flow.Flow
 
 
@@ -9,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 interface MovieDao {
     //Movie
     @Query("SELECT * FROM movie")
-    fun getMovieList() : Flow<List<id.bangkit2021.submissionekspert.core.data.local.entity.MovieEntity>>
+    fun getMovieList(): Flow<List<id.bangkit2021.submissionekspert.core.data.local.entity.MovieEntity>>
 
     @Query("SELECT * FROM movie where favorite = 1")
     fun getFavoriteMovie(): Flow<List<id.bangkit2021.submissionekspert.core.data.local.entity.MovieEntity>>

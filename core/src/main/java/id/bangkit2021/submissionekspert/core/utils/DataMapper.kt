@@ -1,13 +1,13 @@
 package id.bangkit2021.submissionekspert.core.utils
 
-import id.bangkit2021.submissionekspert.core.data.local.entity.MovieEntity
 import id.bangkit2021.submissionekspert.core.data.remote.response.MovieModel
 import id.bangkit2021.submissionekspert.core.domain.model.Movie
 
 object DataMapper {
 
-    fun mapResponsesToEntities(input: List<MovieModel>?) : List<id.bangkit2021.submissionekspert.core.data.local.entity.MovieEntity>{
-        val movieList = ArrayList<id.bangkit2021.submissionekspert.core.data.local.entity.MovieEntity>()
+    fun mapResponsesToEntities(input: List<MovieModel>?): List<id.bangkit2021.submissionekspert.core.data.local.entity.MovieEntity> {
+        val movieList =
+            ArrayList<id.bangkit2021.submissionekspert.core.data.local.entity.MovieEntity>()
         input?.map {
             val movie = id.bangkit2021.submissionekspert.core.data.local.entity.MovieEntity(
                 id = it.id,
@@ -24,8 +24,8 @@ object DataMapper {
     }
 
 
-    fun mapEntitiesToDomain(input: List<id.bangkit2021.submissionekspert.core.data.local.entity.MovieEntity>) : List<Movie> =
-        input.map{
+    fun mapEntitiesToDomain(input: List<id.bangkit2021.submissionekspert.core.data.local.entity.MovieEntity>): List<Movie> =
+        input.map {
             Movie(
                 id = it.id,
                 original_title = it.original_title,
