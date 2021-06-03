@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">OnlyMovie</string>
+
+    <!-- Card View -->
+    <string name="item_card_name">card_item_name</string>
+    <string name="item_card_date">card_item_date</string>
+
+    <!-- Detail Movie -->
+    <string name="movie_name">Movie Name</string>
+    <string name="dummy_name">Kimetsu No Yaiba Mugen Train (2020)</string>
+    <string name="release_date">Release Date</string>
+    <string name="dummy_date">01/06/2021</string>
+    <string name="overview">Overview</string>
+    <string name="dummy_overview">here section to give a synopsis to a movie or tvshow</string>
+    <string name="share">Share</string>
+    <string name="favorite">favorite</string>
+    <string name="title_favorite">Favorite</string>
+
+</resources>
