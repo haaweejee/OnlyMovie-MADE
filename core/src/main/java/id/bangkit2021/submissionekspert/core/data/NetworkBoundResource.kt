@@ -5,24 +5,24 @@ import kotlinx.coroutines.flow.*
 
 abstract class NetworkBoundResource<ResultType, RequestType> {
 
-    private val result: Flow<id.bangkit2021.submissionekspert.core.data.Resource<ResultType>> =
+    private val result: Flow<Resource<ResultType>> =
         flow {
-            emit(id.bangkit2021.submissionekspert.core.data.Resource.Loading())
+            emit(Resource.Loading())
             val dbSource = loadFromDb().first()
             if (shouldFetch(dbSource)) {
-                emit(id.bangkit2021.submissionekspert.core.data.Resource.Loading())
+                emit(Resource.Loading())
                 when (val apiResponse = createCall().first()) {
                     is ApiResponse.Success -> {
                         saveCallResult(apiResponse.data)
                         emitAll(loadFromDb().map {
-                            id.bangkit2021.submissionekspert.core.data.Resource.Success(
+                            Resource.Success(
                                 it
                             )
                         })
                     }
                     is ApiResponse.Empty -> {
                         emitAll(loadFromDb().map {
-                            id.bangkit2021.submissionekspert.core.data.Resource.Success(
+                            Resource.Success(
                                 it
                             )
                         })
@@ -30,7 +30,7 @@ abstract class NetworkBoundResource<ResultType, RequestType> {
                     is ApiResponse.Error -> {
                         onFetchFailed()
                         emit(
-                            id.bangkit2021.submissionekspert.core.data.Resource.Error<ResultType>(
+                            Resource.Error<ResultType>(
                                 apiResponse.errorMessage
                             )
                         )
@@ -38,7 +38,7 @@ abstract class NetworkBoundResource<ResultType, RequestType> {
                 }
             } else {
                 emitAll(loadFromDb().map {
-                    id.bangkit2021.submissionekspert.core.data.Resource.Success(
+                    Resource.Success(
                         it
                     )
                 })
@@ -57,5 +57,5 @@ abstract class NetworkBoundResource<ResultType, RequestType> {
     protected abstract suspend fun saveCallResult(data: RequestType)
 
 
-    fun asFlow(): Flow<id.bangkit2021.submissionekspert.core.data.Resource<ResultType>> = result
+    fun asFlow(): Flow<Resource<ResultType>> = result
 }

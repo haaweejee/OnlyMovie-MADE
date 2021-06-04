@@ -9,6 +9,6 @@ import androidx.room.RoomDatabase
     exportSchema = false
 )
 abstract class MovieDatabase : RoomDatabase() {
-    abstract fun movieDao(): id.bangkit2021.submissionekspert.core.data.local.room.MovieDao
+    abstract fun movieDao(): MovieDao
 
 }
