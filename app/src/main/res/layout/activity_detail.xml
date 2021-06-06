@@ -14,7 +14,8 @@
         android:src="@drawable/loading"
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toTopOf="@+id/item_detail_name"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/imgPoster"
@@ -23,7 +24,8 @@
         android:src="@color/purple_500"
         app:layout_constraintBottom_toBottomOf="@+id/imgBackdrop"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/item_detail_name"

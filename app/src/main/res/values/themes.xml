@@ -14,12 +14,6 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
-    <style name="text_card" parent="TextAppearance.AppCompat">
-        <item name="android:fontFamily">@font/lorabold</item>
-        <item name="android:maxLines">1</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">20sp</item>
-    </style>
 
     <style name="text_detail_name" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">@font/lorabold</item>
@@ -35,10 +29,4 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="text_detail_regular" parent="TextAppearance.AppCompat">
-        <item name="android:fontFamily">@font/loraregular</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:textStyle">bold</item>
-    </style>
 </resources>
